@@ -1,63 +1,138 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
-    <title>Login / Sign Up Form</title>
-    <link rel="shortcut icon" href="/assets/favicon.ico">
-    <link rel="stylesheet" href="/main.css">
-    <link rel="register" href="register.hbs"
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="/style-index.css">
+
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+  <title>Timinuto</title>
 </head>
+
 <body>
-    <div class="container">
-        <form class="form" id="login">
-            <h1 class="form__title">Login</h1>
-            <div class="form__message form__message--error"></div>
-            <div class="form__input-group">
-                <input type="text" class="form__input" autofocus placeholder="Username or email">
-                <div class="form__input-error-message"></div>
-            </div>
-            <div class="form__input-group">
-                <input type="password" class="form__input" autofocus placeholder="Password">
-                <div class="form__input-error-message"></div>
-            </div>
-            <button class="form__button" type="submit">Continue</button>
-            <p class="form__text">
-                <a href="#" class="form__link">Forgot your password?</a>
-            </p>
-            <p class="form__text">
-                <a class="form__link" href="./" id="linkCreateAccount">Don't have an account? Create account</a>
-            </p>
-        </form>
 
-        <form class="form form--hidden" id="createAccount" action="/auth/register" method="POST">
-            <h1 class="form__title">Create Account</h1>
-            <div class="form__message form__message--error"></div>
-            <div class="form__input-group">
-                <input type="text" id="signupUsername" name="name" class="form__input" autofocus placeholder="Username">
-                <div class="form__input-error-message"></div>
-            </div>
-            <div class="form__input-group">
-                <input type="email" id="useremail" name="email" class="form__input" autofocus placeholder="Email Address">
-                <div class="form__input-error-message"></div>
-            </div>
-            <div class="form__input-group">
-                <input type="password" id="userpassword" name="pasword"  class="form__input" autofocus placeholder="Password">
-                <div class="form__input-error-message"></div>
-            </div>
-            {{!-- <div class="form__input-group">
-                <input type="password" id="passwordConfirm" name="passwordConfirm" class="form__input" autofocus placeholder="Confirm password">
-                <div class="form__input-error-message"></div>
-            </div> --}}
-            <button class="form__button" type="submit">Sign Up</button>
-            <p class="form__text">
-                <a class="form__link" href="./" id="linkLogin">Already have an account? Sign in</a>
-            </p>
+  <!-- header section starts  -->
 
-        </form>
-    
-        {{#if message }}
-            <h4 class="alert alert-danger mt-4">{{message}}</h4>
-        {{/if}}
+<header>
+
+    <a href="#" class="logo"><span>Timi</span>nuto</a>
+
+    <input type="checkbox" id="menu-bar">
+    <label for="menu-bar" class="fas fa-bars"></label>
+
+    <nav class="navbar">
+        <a href="/">Home</a></li>
+      {{#if user }}
+        <a href="/profile">Profile</a></li>
+        <a href="/auth/logout">Logout</a></li>
+      {{else}}
+        <a href="/login">Login</a></li>
+        <a href="/register">Register</a></li>
+      {{/if}}
+    </nav>
+
+</header>
+
+<!-- header section ends -->
+
+<!-- home section starts  -->
+
+<section class="home" id="home">
+
+    <div class="content">
+        <h3>best mobile app <span>showcase</span></h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus suscipit porro nam libero natus error consequatur sed repudiandae eos quo?</p>
+        
     </div>
-    <script src="/main.js"></script>
+
+</section>
+
+<!-- home section ends -->
+
+
+<!-- features section starts  -->
+
+<section class="features" id="features">
+
+    <h1 class="heading"> app features </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <img src="images/f-icon1.png" alt="">
+            <h3>amazing UI design</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam minus recusandae autem, repellendus fugit quaerat provident voluptatum non officiis ratione.</p>
+        </div>
+
+        <div class="box">
+            <img src="images/f-icon2.png" alt="">
+            <h3>soft and smooth animations</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam minus recusandae autem, repellendus fugit quaerat provident voluptatum non officiis ratione.</p>
+        </div>
+
+        <div class="box">
+            <img src="images/f-icon3.png" alt="">
+            <h3>freindly interactions</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam minus recusandae autem, repellendus fugit quaerat provident voluptatum non officiis ratione.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- features section ends -->
+
+
+<!-- footer section starts  -->
+
+<div class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>about us</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet pariatur rerum consectetur architecto ad tempora blanditiis quo aliquid inventore a.</p>
+        </div>
+
+        
+        <div class="box">
+            <h3>contact info</h3>
+            <div class="info">
+                <i class="fas fa-phone"></i>
+                <p> +111-111-111 <br></p>
+            </div>
+            <div class="info">
+                <i class="fas fa-envelope"></i>
+                <p> avocadoclouds@gmail.com <br> </p>
+            </div>
+        </div>
+
+    </div>
+
+    <h4 class="credit"> &copy; copyright @ 2021 avocadoclouds </h4>
+
+</div>
+
+<!-- footer section ends -->
+
+
+
+
+
+ 
+
+
+
+
+  
+  
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 </body>
+</html>
+
+
+
