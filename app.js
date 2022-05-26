@@ -2,6 +2,8 @@ const express = require("express");
 const path = require('path');
 const mysql = require("mysql");
 const dotenv = require('dotenv');
+const cookieParser = require('cookie-parser');
+
 
 dotenv.config({path: './.env'});
 
@@ -11,7 +13,8 @@ const db = mysql.createConnection({
     host: process.env.HOST,
     user: process.env.DATBASE_USER,
     password: process.env.PASSWORD,
-    database: process.env.DATABASE
+    database: process.env.DATABASE,
+    socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock'
 });
 
 const publicDirectory = path.join(__dirname, './public')
@@ -22,6 +25,7 @@ app.use(express.urlencoded({extended: false}));
 
 // parse JSON bodies as sent by client
 app.use(express.json());
+app.use(cookieParser());
 
 app.set('view engine', 'hbs');
 
@@ -37,8 +41,19 @@ db.connect( (error) => {
 app.use('/', require('./routes/pages'));
 app.use('/auth', require('./routes/auth'));
 
+//converting mysql table into json
+// client.query('select * from db.table;', function(err, results, fields) {
+//     if(err) throw err;
+
+//     fs.writeFile('table.json', JSON.stringify(results), function (err) {
+//       if (err) throw err;
+//       console.log('Saved!');
+//     });
+
+//     client.end();   
+// });
 
 
-app.listen(5000, () => {
-    console.log("Server started on Port 5000");
+app.listen(5010, () => {
+    console.log("Server started on Port 5010");
 })
