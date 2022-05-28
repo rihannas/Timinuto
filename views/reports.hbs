@@ -4,31 +4,55 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/style-reports.css">
   <title> Timinuto: Reports</title>
 </head>
 
 
 <body>
   {{!-- navigation html --}}
-  <section class="navigation">
-    <nav>
-      <h2>Timinuto</h2>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/profile">Profile</a></li>
-        <li><a href="/reports">Reports</a></li>
-        <li><a href="/auth/logout">Logout</a></li>
-      </ul>
+  <header>
+  <a href="#" class="logo"><span>Timi</span>nuto</a>
+
+  <input type="checkbox" id="menu-bar">
+  <label for="menu-bar" class="fas fa-bars"></label>
+
+
+    <nav class="navbar">
+        <a href="/">Home</a>
+        <a href="/profile">Profile</a>
+        <a href="/reports">Reports</a>
+        <a href="/auth/logout">Logout</a>
     </nav>
+
+  </header>
+
+
+<section class="table">
+<div class="table-wrapper">
+<h2> Reports For Tasks {{title}}</h2>
+    <table class="fl-table">
+        <tr>
+          <th scope="col">Task Name</th>
+          <th scope="col">Task Count</th>
+          <th scope="col">Average Time (min)</th>
+          <th scope="col">Total Time (min)</th>
+           
+        </tr>
+        
+       {{#each userData}}
+        <tr>
+            <td>{{TaskName}}</td>
+            <td>{{this.TaskCount}}</td>
+            <td>{{this.AverageTime}}</td>
+            <td>{{this.TotalTime}}</td>
+            
+        </tr>
+
+        {{/each}}
+    </table>
+    </div>
   </section>
-
-
-  <section class="Top">
-    <h1> Reports </h1>
-  </section>
-
-
   
 
 </body>

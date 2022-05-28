@@ -1,0 +1,91 @@
+:root {
+    --primary: rgb(246, 142, 142);
+    --dark: #fee4a7;
+    --darkdark: black;
+    --light: lightgrey;
+}
+
+section.clock {
+    padding-right: 23cm;
+    padding-top: 5cm;
+}
+
+
+
+.watch {
+    text-align:center;
+    background-color: var(--dark);
+    width: 100%;
+    max-width: 360px;
+    margin: 4rem auto;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+}
+
+.time{
+    font-size: 5rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+}
+
+.controlss {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.controlss button {
+    appearance: none;
+    background: none;
+    border: none;
+    outline: none;
+    user-select: none;
+    cursor: pointer;
+
+    color: var(--light);
+    font-size: 1.15rem;
+    background-color: var(--primary);
+    margin: 0 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+
+    transition: 0.4s;
+
+}
+.controlss button{
+    display: inline-block;
+    margin-top: 1rem;
+    padding:.8rem 3rem;
+    border-radius: 5rem;
+    background:var(--gradient);
+    font-size: 1.7rem;
+    color:#fff;
+    cursor: pointer;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+    transition: all .3s linear;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+.timeinput {
+    appearance: none;
+    background: none;
+    border: none;
+    outline: none;
+    user-select: none;
+    cursor: pointer;
+
+    color: var(--light);
+    font-size: 1.15rem;
+    background-color: var(--primary);
+    margin: 0 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+}
+
+#inputPassword2{
+    margin-top: 0.5cm;
+    border-radius: 1cm;
+}

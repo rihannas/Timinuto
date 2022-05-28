@@ -33,7 +33,7 @@ router.get('/profile', authController.isLoggedIn, (req, res) => {
 
 });
 
-router.get('/reports', (req, res) => {
+router.get('/reports', authController.reporting, (req, res) => {
     res.render('reports');
 });
     

@@ -76,6 +76,12 @@ exports.register = (req, res) => {
             console.log(error);
         }
 
+        if (email == '' || name == '' || password == '') {
+            return res.render('register', {
+                message: 'Enter information please.'
+            })
+        }
+
         if(results.length > 0) {
             return res.render('register', {
                 message: 'That email is already registered'
@@ -85,7 +91,9 @@ exports.register = (req, res) => {
             return res.render('register', {
                 message: 'Passwords do not match'
             });
-        }
+        } 
+
+        
 
         
         const hashedPassword = await bcrypt.hash(password, 8);
@@ -117,7 +125,7 @@ exports.add = (req, res) => {
 
     const {taskname, time, email} = req.body;
 
-    //this only works for user with id 6, which is user gg only
+    //this only works for user with id 6, which is user egg only
     //this part has to be changed to work with other users too.
 
 
@@ -176,4 +184,46 @@ res.cookie('jwt', 'logout', {
 });
 
 res.status(200).redirect('/');
+}
+
+
+
+// query to calculate the time
+
+
+
+// db.query('SELECT taskname, SUM(timetaken) AS TotalTime, AVG(timetaken) AS AverageTime, COUNT(taskname) AS TaskCount FROM trying GROUP BY taskname', (error, results, taskname, AverageTime, TotalTime, TaskCount) => {
+//     if(error) {
+//         console.log(error)
+//     } else {
+//         taskname, TotalTime, AverageTime, TaskCount = results
+//         res.render('reports', { title: 'Task List', taskname: taskname, action: 'list',  userData: results});
+    
+//     }
+// }); 
+
+
+// 'SELECT taskname, SUM(timetaken) AS TotalTime, AVG(timetaken) AS AverageTime, COUNT(taskname) AS TaskCount FROM trying GROUP BY taskname'
+
+
+// db.query('SELECT taskname, SUM(timetaken) AS TotalTime, AVG(timetaken) AS AverageTime, COUNT(taskname) AS TaskCount FROM trying GROUP BY taskname', (error, results) => {
+//     if(error) {
+//         console.log(error)
+//     } else {
+        
+//         console.log(results)
+//     }
+// }); 
+
+exports.reporting = (req, res, next) => {
+
+
+db.query('SELECT taskname AS TaskName, SUM(timetaken) AS TotalTime, AVG(timetaken) AS AverageTime, COUNT(taskname) AS TaskCount FROM trying GROUP BY taskname', (error, results, fields) => {
+    if(error) {
+        console.log(error)
+    } else {
+        res.render('reports', { title: 'Task List', action: 'list',  userData: results});
+    
+    }
+}); 
 }

@@ -4,7 +4,6 @@ const mysql = require("mysql");
 const dotenv = require('dotenv');
 const cookieParser = require('cookie-parser');
 
-
 dotenv.config({path: './.env'});
 
 const app = express();
@@ -27,7 +26,11 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 app.use(cookieParser());
 
+
+
 app.set('view engine', 'hbs');
+
+
 
 db.connect( (error) => {
     if(error) {
@@ -53,6 +56,9 @@ app.use('/auth', require('./routes/auth'));
 //     client.end();   
 // });
 
+// app.use(function(req, res, next) {
+//     next(createError(404));
+// });
 
 app.listen(5010, () => {
     console.log("Server started on Port 5010");

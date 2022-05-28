@@ -1,4 +1,5 @@
 const express = require("express");
+const { listen } = require("express/lib/application");
 const authController = require('../controllers/auth');
 
 const router = express.Router();
@@ -11,5 +12,5 @@ router.get('/logout', authController.logout);
 
 router.post('/add', authController.add);
 
-
-module.exports = router;
+router.get('/reports', authController.reporting);
+module.exports = router; 
