@@ -3,11 +3,11 @@
 
 This project was designed to help people know how much they spend doing certain tasks during their day, with goal in mind to help people make better plans.
 * [Landing Page](https://avocadoclouds.github.io/timinuto-pages/) 
-* [live Demo](https://medium.com/@rehana447/timinuto-mvp-c19fc5c65576)
+* [live Demo](https://tobeadded)
     * Email: egg@email.com
     * Password: 123
 
-* [blog post] (to be added)
+* [blog post](https://medium.com/@rehana447/timinuto-mvp-c19fc5c65576)
 
 * [Linkedin](https://www.linkedin.com/in/rihana-ali-saeid-68352b1bb/)
 
